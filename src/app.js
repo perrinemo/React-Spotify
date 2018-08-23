@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 
 import ListArtist from './list-artist';
 
-import AlbumArtist from './album-artist';
+import Main from './main';
 
 export default class App extends Component {
     render() {
         return(
             <div>
-                <ListArtist />       
-                
-                <AlbumArtist />
+                <Main />
             </div>
         )
     }

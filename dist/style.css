@@ -43,3 +43,7 @@ label, h1 {
 ul {
     padding: 0;
 }
+
+#artists:target {
+    display: none;
+}

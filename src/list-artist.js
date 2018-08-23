@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class ListArtist extends Component {
 
@@ -20,7 +21,7 @@ export default class ListArtist extends Component {
 
     searchArtist(name) {
         const url = "https://api.spotify.com/v1/search?type=artist&q=" + name;
-        const token = "BQDAS5wkyJSKMEXx3iFECmZw5gCYKDpKYyWYmxvePiX-d_kUvj1wwniw9VBhyg6xdEJKSRl9suXFdX9ElUg7pf9rJl3nXuJ3iMm1JTWYVtfdvEhd1J8Fp580vYf8GvdtExU9zOyFz0G800_Cnv8uUnWAzn7-3P95nB0";
+        const token = "BQDwiPg1BRbgf5v_f0BECEFK026CcZJWQogg6Mg1TEagptQ5n_bZKrvz14_qQ2IdSuf_ZTq-pL2MNYXsAoJYBEsRXauytN9M7BRVjdvVUd3RAo0tUkKCmZZzknhHBS50nSHd61agWTe-6mvaq-6iAWXKjxrUL-lLlsk";
 
         fetch(url, {
             method: 'get',
@@ -59,7 +60,9 @@ export default class ListArtist extends Component {
                 </form>
                 <ul id="artists">
                     {this.state.artists.map((artist, key) => 
-                        <a key={key} className="list-group-item list-group-item-action">{artist.name}</a>
+                        <Link to={`/artists/${artist.id}`} >
+                            <a key={key} href="#" className="list-group-item list-group-item-action">{artist.name}</a>
+                        </Link>
                     )}
                 </ul>
             </div>
