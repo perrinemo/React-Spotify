@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { fetchAlbums } from './api';
+import { Link } from 'react-router-dom';
 
 export default class AlbumArtist extends Component {
 
@@ -13,16 +15,7 @@ export default class AlbumArtist extends Component {
     }
 
     showAlbums(id) {
-        const url = "https://api.spotify.com/v1/artists/" + id + "/albums?include_groups=album";
-        const token = "BQDwiPg1BRbgf5v_f0BECEFK026CcZJWQogg6Mg1TEagptQ5n_bZKrvz14_qQ2IdSuf_ZTq-pL2MNYXsAoJYBEsRXauytN9M7BRVjdvVUd3RAo0tUkKCmZZzknhHBS50nSHd61agWTe-6mvaq-6iAWXKjxrUL-lLlsk";
-
-        fetch(url, {
-            method: 'get',
-            headers: new Headers({
-                'Authorization': "Bearer " + token,
-                'Content-Type': "application/json"
-            })
-        })
+        fetchAlbums(id)
         .then((resp) => resp.json())
         .then(data => {
             console.log("Received: ", data.items);
@@ -48,8 +41,17 @@ export default class AlbumArtist extends Component {
     render() {
         return(
             <div className="album">
-                {this.state.isLoading && <p>Chargement en cours</p>}
-                {!this.state.isLoading && this.state.artist === null && <p>Pas d'album pour cet artiste :(</p>}
+                {this.state.isLoading && 
+                    <p>Chargement en cours</p>
+                }
+                
+                {!this.state.isLoading && this.state.artist === null && 
+                    <div>
+                        <p>Pas d'album pour cet artiste :(</p>
+                        <Link to="/">Retour</Link>
+                    </div>
+                }
+                
                 {!this.state.isLoading && this.state.artist !== null && 
                     <div>
                         <h1>{this.state.artist.name}</h1>

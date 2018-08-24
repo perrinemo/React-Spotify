@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchArtists } from './api';
 
 export default class ListArtist extends Component {
 
@@ -20,16 +21,7 @@ export default class ListArtist extends Component {
     }
 
     searchArtist(name) {
-        const url = "https://api.spotify.com/v1/search?type=artist&q=" + name;
-        const token = "BQDwiPg1BRbgf5v_f0BECEFK026CcZJWQogg6Mg1TEagptQ5n_bZKrvz14_qQ2IdSuf_ZTq-pL2MNYXsAoJYBEsRXauytN9M7BRVjdvVUd3RAo0tUkKCmZZzknhHBS50nSHd61agWTe-6mvaq-6iAWXKjxrUL-lLlsk";
-
-        fetch(url, {
-            method: 'get',
-            headers: new Headers({
-                'Authorization': "Bearer " + token,
-                'Content-Type': "application/json"
-            })
-        })
+        fetchArtists(name)
         .then((resp) => resp.json())
         .then(data => {
             console.log("Received: ", data.artists.items);
@@ -44,7 +36,7 @@ export default class ListArtist extends Component {
 
     render() {        
         return(
-            <div className="col-4 mx-auto">
+            <div className="col-lg-3 col-6 mx-auto">
                 <form onSubmit={this.handleSubmit}>
                     <img src="./img/spotify.png" />
                     <div className="form-group">
@@ -60,8 +52,8 @@ export default class ListArtist extends Component {
                 </form>
                 <ul id="artists">
                     {this.state.artists.map((artist, key) => 
-                        <Link to={`/artists/${artist.id}`} >
-                            <a key={key} href="#" className="list-group-item list-group-item-action">{artist.name}</a>
+                        <Link key={key} to={`/artists/${artist.id}`} >
+                            <li className="list-group-item list-group-item-action">{artist.name}</li>
                         </Link>
                     )}
                 </ul>
