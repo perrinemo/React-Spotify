@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchArtists } from './api';
+import { Redirect } from "react-router-dom";
 
 export default class ListArtist extends Component {
 
@@ -34,7 +35,11 @@ export default class ListArtist extends Component {
         e.preventDefault();
     }
 
-    render() {        
+    render() {
+        var token = sessionStorage.getItem("spotify-token")
+        if (token === null) {
+            return <Redirect to="/login" />
+        }
         return(
             <div className="col-lg-3 col-6 mx-auto">
                 <form onSubmit={this.handleSubmit}>
