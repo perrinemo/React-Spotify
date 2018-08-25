@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "cross-fetch": "^2.2.1",
+    "query-string": "^6.1.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
