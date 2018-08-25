@@ -39,6 +39,10 @@ export default class AlbumArtist extends Component {
     }
 
     render() {
+        var token = sessionStorage.getItem("spotify-token")
+        if (token === null) {
+            return <Redirect to="/login" />
+        }
         return(
             <div className="album">
                 {this.state.isLoading && 
