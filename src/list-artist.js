@@ -9,7 +9,7 @@ export default class ListArtist extends Component {
         super(props);
 
         this.state = {
-            artists: [], // empty list on construct
+            artists: [],
             value: ''
         }
 
@@ -30,12 +30,14 @@ export default class ListArtist extends Component {
         })
     }
 
+    // Action sur le formulaire pour afficher l'artiste entré
     handleSubmit(e) {
         this.searchArtist(this.state.value);
         e.preventDefault();
     }
 
     render() {
+        // On vérifie si un token existe
         var token = sessionStorage.getItem("spotify-token")
         if (token === null) {
             return <Redirect to="/login" />

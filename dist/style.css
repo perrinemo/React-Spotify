@@ -11,12 +11,35 @@ form {
     text-align: center;
 }
 
+/************** LIST-ARTIST ********************/
 #artists:target {
     display: none;
 }
 
 .btn {
     background-color: #1eb755;
+}
+
+input {
+    margin-top: 20px;
+}
+
+label {
+    width: 100%;
+}
+
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+/************** ALBUM-ARTIST *******************/
+a:hover {
+    text-decoration: none;
 }
 
 .card {
@@ -47,28 +70,7 @@ img {
     margin-bottom: 25px;
 }
 
-input {
-    margin-top: 20px;
-}
-
-label {
-    width: 100%;
-}
-
-.list-group-item:first-child,
-.list-group-item:last-child {
-    border-radius: 0;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
 p {
     margin-top: 40vh;
     font-size: 20px;
-}
-
-ul {
-    padding: 0;
 }

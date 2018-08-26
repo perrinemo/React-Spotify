@@ -8,12 +8,13 @@ export default class AlbumArtist extends Component {
         super(props);
 
         this.state = {
-            albums: [], // empty list on construct
+            albums: [],
             isLoading: true,
             artist: null
         }
     }
 
+    // Afficher les albums de l'artiste
     showAlbums(id) {
         fetchAlbums(id)
         .then((resp) => resp.json())
@@ -39,6 +40,7 @@ export default class AlbumArtist extends Component {
     }
 
     render() {
+        // On vérifie si un token existe
         var token = sessionStorage.getItem("spotify-token")
         if (token === null) {
             return <Redirect to="/login" />
