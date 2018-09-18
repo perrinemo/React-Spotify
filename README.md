@@ -2,7 +2,7 @@
 
 ### Installation de l'application
 
-Depuis votre terminal, accéder au dossier **ctoutvert** et lancer l'application :
+Depuis votre terminal, accéder au dossier **React-Spotify** et lancer l'application :
 
 `npm install`
 
