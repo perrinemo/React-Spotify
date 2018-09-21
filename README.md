@@ -1,4 +1,4 @@
-# ctoutvert
+# React-Spotify
 
 ### Installation de l'application
 
